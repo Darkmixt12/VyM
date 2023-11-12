@@ -5,7 +5,7 @@ export const appRoutes = [
   {
     path: '',
     loadChildren: () => {
-      return import('../../../../libs/vym/frontend/ui/app/src/lib/lib.routes').then((r) => r.appRoutes)
+      return import('@vym/frontend/app').then((r) => r.appRoutes)
     }
   },
 ];
