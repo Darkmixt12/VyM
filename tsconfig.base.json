@@ -15,7 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@vym/app": ["libs/vym/frontend/ui/app/src/index.ts"]
+      "@vym/app": ["libs/vym/frontend/ui/app/src/index.ts"],
+      "@vym/libs/frontend/lib/routes": [
+        "libs/vym/frontend/ui/app/src/lib/lib.routes"
+      ],
+      "@vym/libs/frontend/shared/footer": [
+        "libs/vym/frontend/shared/components/footer/footer.component"
+      ],
+      "@vym/sharedd": ["libs/vym/frontend/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
