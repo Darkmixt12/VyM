@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+  }
+  
+  //! MANERA CON FLEXBOX
+//   body{ min-height: 100vh; margin:0; }
+
+//   header{ min-height:50px; background:lightcyan; }
+//   vym-footer{ min-height:50px; background:PapayaWhip; }
+  
+//   /* The article fills all the space between header & footer */
+//   body{ display:flex; flex-direction:column; }
+//   div{ flex:1; }
+
+
+//? Manera con grid!
+  body{ 
+	min-height: 100vh; 
+
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+  }
+  
+  .navbar{ 
+	min-height:50px;
+	background:lightcyan; 
+  }
+  
+  vym-footer{ 
+	min-height:50px; 
+	background:PapayaWhip; 
+  }
