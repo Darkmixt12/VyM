@@ -22,6 +22,9 @@
       "@vym/libs/frontend/shared/footer": [
         "libs/vym/frontend/shared/components/footer/footer.component"
       ],
+      "@vym/libs/frontend/shared/navbar": [
+        "libs/vym/frontend/shared/components/navbar/navBar.component"
+      ],
       "@vym/sharedd": ["libs/vym/frontend/shared/src/index.ts"]
     }
   },

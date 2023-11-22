@@ -1,0 +1,37 @@
+*, ::before, ::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  //! MANERA CON FLEXBOX
+//   body{ min-height: 100vh; margin:0; }
+
+//   header{ min-height:50px; background:lightcyan; }
+//   vym-footer{ min-height:50px; background:PapayaWhip; }
+  
+//   /* The article fills all the space between header & footer */
+//   body{ display:flex; flex-direction:column; }
+//   div{ flex:1; }
+
+
+//? Manera con grid!
+  body{ 
+	min-height: 100vh; 
+	background-image: url('../../../../../assets/images/prism.png');
+
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+  }
+  
+  vym-nav-bar{ 
+	min-height:50px;
+	background:lightcyan; 
+  }
+  
+  vym-footer{ 
+	min-height:50px; 
+	background:PapayaWhip; 
+  }
+
+  
