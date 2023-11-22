@@ -1,6 +1,7 @@
-* {
+*, ::before, ::after {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
   }
   
   //! MANERA CON FLEXBOX
@@ -17,6 +18,7 @@
 //? Manera con grid!
   body{ 
 	min-height: 100vh; 
+	background-image: url('../../../../../assets/images/prism.png');
 
 	display: grid;
 	grid-template-rows: auto 1fr auto;
@@ -31,3 +33,5 @@
 	min-height:50px; 
 	background:PapayaWhip; 
   }
+
+  
