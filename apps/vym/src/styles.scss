@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap');
+
+/* pone por defecto que ninguno objeto en el cuerpo tenga padding o margin*/
 *{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-  }
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}

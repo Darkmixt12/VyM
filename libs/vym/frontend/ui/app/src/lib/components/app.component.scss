@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	color: white;
   }
   
   //! MANERA CON FLEXBOX
@@ -25,8 +26,7 @@
   }
   
   vym-nav-bar{ 
-	min-height:50px;
-	background:lightcyan; 
+	min-height:50px; 
   }
   
   vym-footer{ 
@@ -34,4 +34,3 @@
 	background:PapayaWhip; 
   }
 
-  

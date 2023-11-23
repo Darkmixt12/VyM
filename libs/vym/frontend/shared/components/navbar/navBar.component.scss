@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap');
+
+/* pone por defecto que ninguno objeto en el cuerpo tenga padding o margin*/
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+.navbar{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    /*min-height: 100vh; //100 vh es equivalente a ocupar 100% de la altura visible de la pantalla */
+    padding: 90px;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    
+}
+
+//! PARA QUE LA BARRA NAV QUEDE AL BORDE DERECHO
+// header{
+//     position: absolute;
+//     top: 10;
+//     left: 0;
+//     width: 100%;
+//     height: 80px;
+//     padding: 0px 100px;
+//     display: flex;
+//     justify-content: space-evenly;
+//     align-items: center;
+//     margin-top: 0px;
+// }
+
+.vymlogo{
+    position:relative;
+    max-width: 80px;
+    align-items: center;
+    align-items: space-between;
+}
+
+header ul{
+    position: relative;
+    display:flex;
+}
+
+/* inicio producto contacto */
+header ul li{
+    list-style: none;
+    align-items: center;
+}
+
+header ul li a{
+    color: white;
+    padding: 20px;
+    align-items: space-between;
+    cursor: pointer;
+}
+
