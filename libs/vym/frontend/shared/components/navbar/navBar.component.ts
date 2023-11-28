@@ -16,9 +16,11 @@ export class NavBarComponent {
     if (visibility === 'false') {
       primaryNav?.setAttribute('data-visible', 'true');
       console.log(primaryNav);
+      console.log(visibility)
     } else if (visibility === 'true') {
       primaryNav?.setAttribute('data-visible', 'false');
       console.log(primaryNav);
+      console.log(visibility)
     }
   }
 }

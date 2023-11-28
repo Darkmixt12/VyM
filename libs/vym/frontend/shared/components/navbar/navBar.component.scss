@@ -36,6 +36,7 @@
 
 .mobile-nav-toggle {
   display: none;
+  
 }
 
 .vymlogo {
@@ -102,7 +103,7 @@ nav {
     transform: translateX(100%);
   }
 
-  .primary-navigation[data-visible='true'] {
+  header [data-visible="true"] {
     transform: translateX(0%);
   }
 
