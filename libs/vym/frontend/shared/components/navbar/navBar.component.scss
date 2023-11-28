@@ -35,6 +35,10 @@
 //     margin-top: 0px;
 // }
 
+.mobile-nav-toggle{
+    display: none;
+  }
+
 .vymlogo{
     position:relative;
     max-width: 80px;
@@ -77,6 +81,8 @@ nav{
     backdrop-filter: blur(1rem);
 }
 
+
+
 @supports (backdrop-filter: blur(1rem)){
     .primary-navigation{
         background: hsl(0 0% 100% / 0.1);
@@ -96,9 +102,28 @@ nav{
         background-color: steelblue;
         flex-direction: column;    
         padding: min(30vh, 10rem) 2em;
+        z-index: 1000;
 
         background: hsl(0 0% 100% / 0.1);
         backdrop-filter: blur(2rem);
+
+        transform: translateX(100%)
     }
 
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0%)
+    }
+
+    .mobile-nav-toggle{
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        background-repeat: no-repeat;
+        width: 2rem;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+        border: 0;
+    }
+    
 }

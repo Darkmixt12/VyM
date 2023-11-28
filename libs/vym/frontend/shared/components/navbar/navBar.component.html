@@ -9,17 +9,21 @@
   <body>
 	
 
-    <header class="primary-header">
+    <header class="primary-header flex">
 
       
-      <nav class="navbar">
+      <nav data-visibles="false" class="navbar">
 
         <div class="routerlink">
           <img src="../../../assets/images/logoMesa_de_trabajo_1.png" alt="No se carga la imagen" width="100" height="100"/>
           </div>
 
+          <button (click)="atributo()" class="mobile-nav-toggle" 
+          aria-controls="primary-navigation"
+          aria-expanded="false"><span class="sr-only">Menu</span>
+          </button>
 
-        <ul class="primary-navigation">
+        <ul id="primary-navigation" class="primary-navigation" data-visible="false">
           <li><a>Ingresar Factura</a></li>
           <li><a>Despacho</a></li>
           <li><a>Facturas</a></li>
