@@ -1,24 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap');
 
 /* pone por defecto que ninguno objeto en el cuerpo tenga padding o margin*/
-*{
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    font-family: 'Poppins', 'sans-serif';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'sans-serif';
 }
 
-.navbar{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    /*min-height: 100vh; //100 vh es equivalente a ocupar 100% de la altura visible de la pantalla */
-    padding: 90px;
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  /*min-height: 100vh; //100 vh es equivalente a ocupar 100% de la altura visible de la pantalla */
+  padding: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 //! PARA QUE LA BARRA NAV QUEDE AL BORDE DERECHO
@@ -35,95 +34,87 @@
 //     margin-top: 0px;
 // }
 
-.mobile-nav-toggle{
-    display: none;
-  }
-
-.vymlogo{
-    position:relative;
-    max-width: 80px;
-    align-items: center;
-    align-items: space-between;
+.mobile-nav-toggle {
+  display: none;
 }
 
-header ul{
-    position: relative;
-    display:flex;
+.vymlogo {
+  position: relative;
+  max-width: 80px;
+  align-items: center;
+  align-items: space-between;
+}
+
+header ul {
+  position: relative;
+  display: flex;
 }
 
 /* inicio producto contacto */
-header ul li{
-    list-style: none;
-    align-items: center;
-    display: flex;
+header ul li {
+  list-style: none;
+  align-items: center;
+  display: flex;
 }
 
-header ul li a{
-    color: white;
-    padding: 20px;
-    align-items: space-between;
-    cursor: pointer;
-  
+header ul li a {
+  color: white;
+  padding: 20px;
+  align-items: space-between;
+  cursor: pointer;
 }
 
-nav{
-    display: flex;
-
+nav {
+  display: flex;
 }
 
-.primary-header{
-    align-items: center;
-    justify-content: space-between
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
 }
 
-.primary-navigation{
-    background: hsl(0 0% 0% / 0.75);
+.primary-navigation {
+  background: hsl(0 0% 0% / 0.75);
+  backdrop-filter: blur(1rem);
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsl(0 0% 100% / 0.1);
     backdrop-filter: blur(1rem);
+  }
 }
 
-
-
-@supports (backdrop-filter: blur(1rem)){
-    .primary-navigation{
-        background: hsl(0 0% 100% / 0.1);
-        backdrop-filter: blur(1rem);
-    }
-}
-
-
-//? MEDIA QUERY NAV 
+//? MEDIA QUERY NAV
 
 @media only screen and (max-width: 1110px) {
-    header .primary-navigation{
-       
-        
-        position: fixed;
-        inset: 0 0 0 40%;
-        background-color: steelblue;
-        flex-direction: column;    
-        padding: min(30vh, 10rem) 2em;
-        z-index: 1000;
+  header .primary-navigation {
+    position: fixed;
+    inset: 0 0 0 40%;
+    background-color: steelblue;
+    flex-direction: column;
+    padding: min(30vh, 10rem) 2em;
+    z-index: 1000;
 
-        background: hsl(0 0% 100% / 0.1);
-        backdrop-filter: blur(2rem);
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(2rem);
 
-        transform: translateX(100%)
-    }
+    transform: translateX(100%);
+  }
 
-    .primary-navigation[data-visible="true"]{
-        transform: translateX(0%)
-    }
+  .primary-navigation[data-visible='true'] {
+    transform: translateX(0%);
+  }
 
-    .mobile-nav-toggle{
-        display: block;
-        position: absolute;
-        z-index: 9999;
-        background-repeat: no-repeat;
-        width: 2rem;
-        aspect-ratio: 1;
-        top: 2rem;
-        right: 2rem;
-        border: 0;
-    }
-    
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    background-repeat: no-repeat;
+    width: 2rem;
+    aspect-ratio: 1;
+    top: 2rem;
+    right: 2rem;
+    border: 0;
+  }
 }
