@@ -8,4 +8,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navBar.component.html',
   styleUrls: ['./navBar.component.scss'],
 })
-export class NavBarComponent {}
+export class NavBarComponent {
+
+
+
+
+}
