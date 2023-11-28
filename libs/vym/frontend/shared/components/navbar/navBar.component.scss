@@ -51,6 +51,7 @@ header ul{
 header ul li{
     list-style: none;
     align-items: center;
+    display: flex;
 }
 
 header ul li a{
@@ -58,5 +59,46 @@ header ul li a{
     padding: 20px;
     align-items: space-between;
     cursor: pointer;
+  
 }
 
+nav{
+    display: flex;
+
+}
+
+.primary-header{
+    align-items: center;
+    justify-content: space-between
+}
+
+.primary-navigation{
+    background: hsl(0 0% 0% / 0.75);
+    backdrop-filter: blur(1rem);
+}
+
+@supports (backdrop-filter: blur(1rem)){
+    .primary-navigation{
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(1rem);
+    }
+}
+
+
+//? MEDIA QUERY NAV 
+
+@media only screen and (max-width: 1110px) {
+    header .primary-navigation{
+       
+        
+        position: fixed;
+        inset: 0 0 0 40%;
+        background-color: steelblue;
+        flex-direction: column;    
+        padding: min(30vh, 10rem) 2em;
+
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(2rem);
+    }
+
+}
