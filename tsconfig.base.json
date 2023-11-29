@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@vym/app": ["libs/vym/frontend/ui/app/src/index.ts"],
+      "@vym/facturas-despacho": [
+        "libs/vym/frontend/ui/facturas-despacho/src/index.ts"
+      ],
       "@vym/libs/frontend/lib/routes": [
         "libs/vym/frontend/ui/app/src/lib/lib.routes"
       ],
@@ -25,6 +28,7 @@
       "@vym/libs/frontend/shared/navbar": [
         "libs/vym/frontend/shared/components/navbar/navBar.component"
       ],
+      "@vym/notas-credito": ["libs/vym/frontend/ui/notas-credito/src/index.ts"],
       "@vym/sharedd": ["libs/vym/frontend/shared/src/index.ts"]
     }
   },
