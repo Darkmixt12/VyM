@@ -26,7 +26,7 @@
         "libs/vym/frontend/shared/components/footer/footer.component"
       ],
       "@vym/libs/frontend/shared/navbar": [
-        "libs/vym/frontend/shared/components/navbar/navBar.component"
+        "libs/vym/frontend/shared/components/navbar/nav-bar.component"
       ],
       "@vym/notas-credito": ["libs/vym/frontend/ui/notas-credito/src/index.ts"],
       "@vym/sharedd": ["libs/vym/frontend/shared/src/index.ts"]

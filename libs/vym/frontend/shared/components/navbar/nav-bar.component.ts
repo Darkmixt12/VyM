@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'vym-nav-bar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './navBar.component.html',
-  styleUrls: ['./navBar.component.scss'],
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
   atributo() {
@@ -16,11 +16,11 @@ export class NavBarComponent {
     if (visibility === 'false') {
       primaryNav?.setAttribute('data-visible', 'true');
       console.log(primaryNav);
-      console.log(visibility)
+      console.log(visibility);
     } else if (visibility === 'true') {
       primaryNav?.setAttribute('data-visible', 'false');
       console.log(primaryNav);
-      console.log(visibility)
+      console.log(visibility);
     }
   }
 }
