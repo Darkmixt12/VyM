@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'vym-despacho-scam',
-  templateUrl: './despacho-scam.component.html',
-  styleUrls: ['./despacho-scam.component.scss'],
+  templateUrl: './despacho.component.html',
+  styleUrls: ['./despacho.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DespachoScamComponent {}

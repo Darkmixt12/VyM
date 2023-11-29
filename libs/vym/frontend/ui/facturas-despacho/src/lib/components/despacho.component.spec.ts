@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DespachoScamComponent } from './despacho-scam.component';
+import { DespachoScamComponent } from './despacho.component';
 
 describe('DespachoScamComponent', () => {
   let component: DespachoScamComponent;

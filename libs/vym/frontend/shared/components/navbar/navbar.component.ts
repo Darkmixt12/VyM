@@ -5,10 +5,10 @@ import { CommonModule } from '@angular/common';
   selector: 'vym-nav-bar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss'],
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class NavBarComponent {
+export class NavbarComponent {
   atributo() {
     const primaryNav = document.querySelector('.primary-navigation');
     const visibility = primaryNav?.getAttribute('data-visible');
