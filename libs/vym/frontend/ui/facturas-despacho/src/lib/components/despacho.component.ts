@@ -1,17 +1,22 @@
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from '@vym/libs/frontend/shared/navbar'
+import { FooterComponent } from '@vym/libs/frontend/shared/footer'
 
 @Component({
-  selector: 'vym-despacho-scam',
+  selector: 'vym-despacho',
   templateUrl: './despacho.component.html',
   styleUrls: ['./despacho.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DespachoScamComponent {}
+
+export class DespachoComponent {}
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [DespachoScamComponent],
-  exports: [DespachoScamComponent],
+  imports: [CommonModule, RouterModule, FooterComponent, NavbarComponent],
+  declarations: [DespachoComponent],
+  exports: [DespachoComponent],
 })
-export class DespachoScamComponentModule {}
+
+export class DespachoComponentModule {}
