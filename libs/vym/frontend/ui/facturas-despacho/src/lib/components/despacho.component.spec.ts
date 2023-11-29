@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DespachoComponent } from './despacho.component';
 
-
-
 describe('DespachoScamComponent', () => {
   let component: DespachoComponent;
   let fixture: ComponentFixture<DespachoComponent>;

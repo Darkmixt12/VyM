@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '@vym/libs/frontend/shared/navbar'
-import { FooterComponent } from '@vym/libs/frontend/shared/footer'
+import { NavbarComponent } from '@vym/libs/frontend/shared/navbar';
+import { FooterComponent } from '@vym/libs/frontend/shared/footer';
 
 @Component({
   selector: 'vym-despacho',
@@ -10,7 +10,6 @@ import { FooterComponent } from '@vym/libs/frontend/shared/footer'
   styleUrls: ['./despacho.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class DespachoComponent {}
 
 @NgModule({
@@ -18,5 +17,4 @@ export class DespachoComponent {}
   declarations: [DespachoComponent],
   exports: [DespachoComponent],
 })
-
 export class DespachoComponentModule {}
