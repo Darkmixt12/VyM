@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'vym-nav-bar',
+  selector: 'vym-navbar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './navBar.component.html',
-  styleUrls: ['./navBar.component.scss'],
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class NavBarComponent {
+export class NavbarComponent {
   atributo() {
     const primaryNav = document.querySelector('.primary-navigation');
     const visibility = primaryNav?.getAttribute('data-visible');
@@ -16,11 +16,11 @@ export class NavBarComponent {
     if (visibility === 'false') {
       primaryNav?.setAttribute('data-visible', 'true');
       console.log(primaryNav);
-      console.log(visibility)
+      console.log(visibility);
     } else if (visibility === 'true') {
       primaryNav?.setAttribute('data-visible', 'false');
       console.log(primaryNav);
-      console.log(visibility)
+      console.log(visibility);
     }
   }
 }

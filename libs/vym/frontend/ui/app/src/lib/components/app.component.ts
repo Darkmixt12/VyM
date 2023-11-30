@@ -1,4 +1,4 @@
-import { NavBarComponent } from '@vym/libs/frontend/shared/navbar';
+import { NavbarComponent } from '@vym/libs/frontend/shared/navbar';
 
 //import { FooterComponent } from '@vym/libs/frontend/shared/footer';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'vym-app',
   standalone: true,
-  imports: [CommonModule, FooterComponent, NavBarComponent, RouterModule],
+  imports: [CommonModule, FooterComponent, NavbarComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -36,7 +36,6 @@
 
 .mobile-nav-toggle {
   display: none;
-  
 }
 
 .vymlogo {
@@ -86,6 +85,10 @@ nav {
   }
 }
 
+.mobile-nav-toggle {
+  background: url(../../../assets/images/321.png);
+}
+
 //? MEDIA QUERY NAV
 
 @media only screen and (max-width: 1110px) {
@@ -103,7 +106,7 @@ nav {
     transform: translateX(100%);
   }
 
-  header [data-visible="true"] {
+  header [data-visible='true'] {
     transform: translateX(0%);
   }
 

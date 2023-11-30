@@ -1,1 +1,1 @@
-export * from './lib/sharedd.module';
+export * from './lib/shared.module';

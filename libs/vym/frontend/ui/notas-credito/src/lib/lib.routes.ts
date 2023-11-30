@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { NotasCreditoComponent } from './notas-credito/notas-credito.component';
+import { NotasCreditoComponent } from './components/notas-credito/notas-credito.component';
 
 export const notasCreditoRoutes: Route[] = [
   { path: '', component: NotasCreditoComponent },
