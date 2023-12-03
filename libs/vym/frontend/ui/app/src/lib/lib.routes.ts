@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './components/app.component';
+import { DespachoComponent } from '../../../facturas-despacho/src/lib/components/despacho.component';
 
 export const appRoutes: Routes = [
   {
@@ -7,11 +8,18 @@ export const appRoutes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: '',
-        loadChildren: () =>
+        path: 'despacho',
+        loadComponent: () =>
           import(
-            '../../../facturas-despacho/src/lib/components/despacho.component'
-          ).then((m) => m.DespachoComponentModule),
+            '../../../facturas-despacho/src/lib/components/facturas-despacho/facturas-despacho.component'
+          ).then((m) => m.FacturasDespachoComponent),
+      },
+      {
+        path: 'notas-credito',
+        loadComponent: () =>
+          import(
+            '../../../notas-credito/src/lib/components/notas-credito/notas-credito.component'
+          ).then((m) => m.NotasCreditoComponent),
       },
     ],
   },
