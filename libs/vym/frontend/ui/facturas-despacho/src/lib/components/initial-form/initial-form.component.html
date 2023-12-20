@@ -1,0 +1,67 @@
+<form
+  action=""
+  id="form"
+  [formGroup]="formFactura"
+  (ngsubmit)="addFactura(formFactura)"
+>
+  <div>
+    <div class="title">
+      <h2>FACTURAS VYM</h2>
+    </div>
+
+    <h3>FACTURA</h3>
+    <br />
+    <div class="row">
+      <div class="column">
+        <input placeholder="Numero de factura" type="text" />
+      </div>
+      <div class="column">
+        <input placeholder="Nombre de Cliente" type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <input placeholder="Fecha de Registro" type="text" />
+      </div>
+      <div class="column">
+        <input placeholder="Numero de pedido" type="text" />
+      </div>
+    </div>
+
+    <h3>ALISTADOR</h3>
+    <br />
+    <div class="row">
+      <div class="column">
+        <input placeholder="Nombre de Alistador" type="text" />
+      </div>
+      <div class="column">
+        <input placeholder="Nombre de Cliente" type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <input placeholder="Fecha de Registro" type="text" />
+      </div>
+    </div>
+
+    <h3>CHEQUEADOR</h3>
+    <br />
+    <div class="row">
+      <div class="column">
+        <input placeholder="Nombre de Alistador" type="text" />
+      </div>
+      <div class="column">
+        <input placeholder="Nombre de Cliente" type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <input placeholder="Fecha de Registro" type="text" />
+      </div>
+    </div>
+
+    <button type="submit" mat-button id="BtnForm2" cdkFocusInitial>
+      Guardar
+    </button>
+  </div>
+</form>

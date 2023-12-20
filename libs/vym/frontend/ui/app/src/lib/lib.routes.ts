@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './components/app.component';
-import { DespachoComponent } from '../../../facturas-despacho/src/lib/components/despacho.component';
 
 export const appRoutes: Routes = [
   {
