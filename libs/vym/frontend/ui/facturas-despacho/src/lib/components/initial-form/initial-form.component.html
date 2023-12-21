@@ -1,15 +1,11 @@
-<form
-  action=""
-  id="form"
-  [formGroup]="formFactura"
-  (ngsubmit)="addFactura(formFactura)"
->
+<form action="" id="form">
   <div>
     <div class="title">
       <h2>FACTURAS VYM</h2>
     </div>
 
-    <h3>FACTURA</h3>
+
+    <label>FACTURA</label>
     <br />
     <div class="row">
       <div class="column">
@@ -28,11 +24,11 @@
       </div>
     </div>
 
-    <h3>ALISTADOR</h3>
+	<label>Alistador</label>
     <br />
     <div class="row">
       <div class="column">
-        <input placeholder="Nombre de Alistador" type="text" />
+        <input placeholder="Numero de factura" type="text" />
       </div>
       <div class="column">
         <input placeholder="Nombre de Cliente" type="text" />
@@ -41,27 +37,133 @@
     <div class="row">
       <div class="column">
         <input placeholder="Fecha de Registro" type="text" />
+      </div>
+      <div class="column">
+        <input placeholder="Numero de pedido" type="text" />
       </div>
     </div>
 
-    <h3>CHEQUEADOR</h3>
-    <br />
-    <div class="row">
+
+
+
+  </div>
+</form>
+
+<form action="" id="form">
+  <!-- EL FORM GROUP ES LO QUE ENLAZA el html al TS -->
+  <div class="title">
+    <h2>FACTURAS VYM</h2>
+  </div>
+  <!-- CAMPO DE NOMBRE DE FACTURA -->
+  <h3>FACTURA</h3>
+  <div class="row">
+    <div class="column">
+      <label>NUMERO DE FACTURA</label>
+      <input
+        matInput
+        formControlName="factura"
+        autocomplete="off"
+        placeholder="Ingresar numero"
+      />
+      <!-- Con el formControlName vinculamos el HTML con el Ts para los input-->
+      <!-- mensaje de error para el form -->
+    </div>
+  </div>
+
+  <!--! CAMPO DE NOMBRE DE CLIENTE -->
+  <div class="column">
+    <label>NOMBRE DEL CLIENTE</label>
+    <input
+      matInput
+      formControlName="cliente"
+      utocomplete="off"
+      placeholder="ingresar Nombre"
+    />
+    <!-- mensaje de error para el form -->
+    <div class="error"></div>
+  </div>
+  <!-- para que se pongan uno debajo del otro y no en linea-->
+
+  <!--! FECHA REGISTRO -->
+  <form class="row">
+    <div class="column1">
+      <label>Fecha de Registro</label>
+      <input />
+
+      <!--! CAMPO DE NUM PEDIDO -->
       <div class="column">
-        <input placeholder="Nombre de Alistador" type="text" />
+        <label>NUMERO DE PEDIDO</label>
+        <input
+          matInput
+          formControlName="numPedido"
+          autocomplete="off"
+          placeholder="Ingresar Num Pedido"
+        />
+        <!-- Con el formControlName vinculamos el HTML con el Ts para los input-->
+
+        <!-- mensaje de error para el form -->
       </div>
+
+      <!--! CAMPO ALISTADOR-->
+    </div>
+    <div>
+      <h3 class="titlealistador">ALISTADOR</h3>
+      <div class="row">
+        <!-- NOMBRE DE ALISTADOR SELECTION-->
+        <div class="column">
+          <label>Nombre de Alistador</label>
+          <input
+            formControlName="nameAlistador"
+            type="text"
+            placeholder=" "
+            aria-label="Number"
+            matInput
+          />
+        </div>
+        <!-- NUMERO DE MESA DEL ALISTADOR -->
+        <div class="column1">
+          <label>N° MESA</label>
+          <input type="text" />
+        </div>
+      </div>
+      <!-- FECHA DE CHECKEO DEL ALISTADOR -->
       <div class="column">
-        <input placeholder="Nombre de Cliente" type="text" />
+        <label>Fecha de Alistado</label>
+        <input formControlName="fechaAlistado" matInput />
       </div>
     </div>
-    <div class="row">
+    <div>
+      <h3 class="titlechequeador">CHEQUEADOR</h3>
+      <div class="row">
+        <div class="column">
+          <label>Nombre de Chequeador</label>
+          <input
+            formControlName="nameChequeador"
+            type="text"
+            placeholder=" "
+            aria-label="Number"
+            matInput
+          />
+        </div>
+        <div class="column1">
+          <label>HORA CHEQUEO</label>
+          <input
+            matInput
+            formControlName="horaChequeo"
+            autocomplete="off"
+            placeholder="00:00 am/pm"
+          />
+          <div class="error"></div>
+        </div>
+      </div>
       <div class="column">
-        <input placeholder="Fecha de Registro" type="text" />
+        <label>Fecha de Chequeo</label>
+        <input />
       </div>
     </div>
 
     <button type="submit" mat-button id="BtnForm2" cdkFocusInitial>
       Guardar
     </button>
-  </div>
+  </form>
 </form>
