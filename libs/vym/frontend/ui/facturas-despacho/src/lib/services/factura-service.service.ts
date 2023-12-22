@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class FacturaServiceService {
+export class FacturaService {
   private Global = {
     url: 'https://localhost:4200/api/',
   };
@@ -14,7 +14,7 @@ export class FacturaServiceService {
   private url: string = this.Global.url;
   #http = inject(HttpClient);
 
-  saveFactura(factura: Factura): Observable<Factura> {
+  public saveFactura(factura: Factura): Observable<Factura> {
     const params = JSON.stringify(factura);
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
