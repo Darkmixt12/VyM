@@ -1,9 +1,14 @@
-import { ChangeDetectionStrategy, Component, Inject, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DespachoComponent } from '../despacho.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { map } from 'rxjs';
-import { FacturaService } from '../../services/factura-service.service';
+import { DespachoService } from '../services/despacho.service';
+
+
+
+
+
+
 
 @Component({
   selector: 'vym-facturas-despacho',
@@ -13,15 +18,15 @@ import { FacturaService } from '../../services/factura-service.service';
   styleUrls: ['./facturas-despacho.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class FacturasDespachoComponent {
+  //constructor(private despachoService : DespachoService){}
 private fb  = inject(FormBuilder)
-private _facturaService = Inject(FacturaService)
-
-
+private despachoService = inject(DespachoService);
 public myForm: FormGroup = this.fb.group({
   id_: [''],
-  numPedido: ['12345',],
-  facturasId: ['32165',],
+  numPedido: ['',],
+  facturasId: ['',],
   client: ['Steven Muñoz',],
   fechaReg: ['23/12/23',],
   pushMoney: ['',],
@@ -33,17 +38,13 @@ public myForm: FormGroup = this.fb.group({
   horaChequeo: ['10:00 AM',],
 });
 
-onSave():void{
-  console.log(this.myForm.value);
-}
 
-agregarFactura() : void{
+ agregarFactura(){
+  this.despachoService.saveFactura(this.myForm.value).subscribe(console.log)
 
-  this._facturaService.saveFactura(this.myForm.value).pipe(
-    map( console.log)
-  ).subscribe('Hola desde el OBS', console.log)
-  
-}
+ }
+
+
 
 
 
