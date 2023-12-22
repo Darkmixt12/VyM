@@ -4,12 +4,6 @@ import { DespachoComponent } from '../despacho.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DespachoService } from '../services/despacho.service';
 
-
-
-
-
-
-
 @Component({
   selector: 'vym-facturas-despacho',
   standalone: true,
@@ -18,34 +12,26 @@ import { DespachoService } from '../services/despacho.service';
   styleUrls: ['./facturas-despacho.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class FacturasDespachoComponent {
   //constructor(private despachoService : DespachoService){}
-private fb  = inject(FormBuilder)
-private despachoService = inject(DespachoService);
-public myForm: FormGroup = this.fb.group({
-  id_: [''],
-  numPedido: ['',],
-  facturasId: ['',],
-  client: ['Steven Muñoz',],
-  fechaReg: ['23/12/23',],
-  pushMoney: ['',],
-  nomAlistador: ['Fabricio',],
-  nomChequeador: ['Fernando',],
-  fechaAlistado: ['23/12/23',],
-  fechaChequeo: ['24/12/23',],
-  numMesa: ['2',],
-  horaChequeo: ['10:00 AM',],
-});
+  private fb = inject(FormBuilder);
+  private despachoService = inject(DespachoService);
+  public myForm: FormGroup = this.fb.group({
+    id_: [''],
+    numPedido: [''],
+    facturasId: [''],
+    client: ['Steven Muñoz'],
+    fechaReg: ['23/12/23'],
+    pushMoney: [''],
+    nomAlistador: ['Fabricio'],
+    nomChequeador: ['Fernando'],
+    fechaAlistado: ['23/12/23'],
+    fechaChequeo: ['24/12/23'],
+    numMesa: ['2'],
+    horaChequeo: ['10:00 AM'],
+  });
 
-
- agregarFactura(){
-  this.despachoService.saveFactura(this.myForm.value).subscribe(console.log)
-
- }
-
-
-
-
-
+  agregarFactura() {
+    this.despachoService.saveFactura(this.myForm.value).subscribe(console.log);
+  }
 }
