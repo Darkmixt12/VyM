@@ -3,6 +3,9 @@ Buenas Despacho aqui
 <form
   action=""
   id="form"
+  autocomplete="off"
+  [formGroup]="myForm"
+  (ngSubmit)="agregarFactura()"
 >
   <div>
     <div class="title">
@@ -13,18 +16,34 @@ Buenas Despacho aqui
     <br />
     <div class="row">
       <div class="column">
-        <input placeholder="Numero de factura" type="text" />
+        <input
+          placeholder="Numero de factura"
+          type="text"
+          formControlName="facturasId"
+        />
       </div>
       <div class="column">
-        <input placeholder="Nombre de Cliente" type="text" />
+        <input
+          placeholder="Nombre de Cliente"
+          type="text"
+          formControlName="client"
+        />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <input placeholder="Fecha de Registro" type="text" />
+        <input
+          placeholder="Fecha de Registro"
+          type="text"
+          formControlName="fechaReg"
+        />
       </div>
       <div class="column">
-        <input placeholder="Numero de pedido" type="text" />
+        <input
+          placeholder="Numero de pedido"
+          type="text"
+          formControlName="numPedido"
+        />
       </div>
     </div>
 
@@ -32,15 +51,27 @@ Buenas Despacho aqui
     <br />
     <div class="row">
       <div class="column">
-        <input placeholder="Nombre de Alistador" type="text" />
+        <input
+          placeholder="Nombre de Alistador"
+          type="text"
+          formControlName="nomAlistador"
+        />
       </div>
       <div class="column">
-        <input placeholder="Nombre de Cliente" type="text" />
+        <input
+          placeholder="Numero de Mesa"
+          type="text"
+          formControlName="numMesa"
+        />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <input placeholder="Fecha de Registro" type="text" />
+        <input
+          placeholder="Fecha de Alistado"
+          type="text"
+          formControlName="fechaAlistado"
+        />
       </div>
     </div>
 
@@ -48,15 +79,27 @@ Buenas Despacho aqui
     <br />
     <div class="row">
       <div class="column">
-        <input placeholder="Nombre de Alistador" type="text" />
+        <input
+          placeholder="Nombre de Chequeador"
+          type="text"
+          formControlName="nomChequeador"
+        />
       </div>
       <div class="column">
-        <input placeholder="Nombre de Cliente" type="text" />
+        <input
+          placeholder="Hora Chequeo"
+          type="text"
+          formControlName="horaChequeo"
+        />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <input placeholder="Fecha de Registro" type="text" />
+        <input
+          placeholder="Fecha de Chequeo"
+          type="text"
+          formControlName="fechaChequeo"
+        />
       </div>
     </div>
 
