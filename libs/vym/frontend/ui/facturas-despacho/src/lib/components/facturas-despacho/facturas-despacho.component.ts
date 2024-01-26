@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DespachoComponent } from '../despacho.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DespachoService } from '../services/despacho.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'vym-facturas-despacho',
@@ -13,9 +14,10 @@ import { DespachoService } from '../services/despacho.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FacturasDespachoComponent {
-  //constructor(private despachoService : DespachoService){}
   private fb = inject(FormBuilder);
   private despachoService = inject(DespachoService);
+  public triggerButton = new Subject<void>();
+
   public myForm: FormGroup = this.fb.group({
     id_: [''],
     numPedido: [''],
@@ -31,7 +33,5 @@ export class FacturasDespachoComponent {
     horaChequeo: ['10:00 AM'],
   });
 
-  agregarFactura() {
-    this.despachoService.saveFactura(this.myForm.value).subscribe(console.log);
-  }
+  agregarFactura$ = this.despachoService.saveFactura(this.myForm.value);
 }
