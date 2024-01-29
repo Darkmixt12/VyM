@@ -28,8 +28,16 @@
       "@vym/libs/frontend/shared/navbar": [
         "libs/vym/frontend/shared/components/navbar/navbar.component"
       ],
-      "@vym/notas-credito": ["libs/vym/frontend/ui/notas-credito/src/index.ts"],
-      "@vym/sharedd": ["libs/vym/frontend/shared/src/index.ts"]
+      "@vym/notas-credito": [
+        "libs/vym/frontend/ui/notas-credito/src/index.ts"],
+      "@vym/sharedd": [
+        "libs/vym/frontend/shared/src/index.ts"],
+      "@vym/lib/facturas-despacho": [
+        "libs/vym/frontend/ui/facturas-despacho/src/lib/lib.routes.ts"
+      ],
+      "@vym/lib/notas-credito": [
+        "libs/vym/frontend/ui/notas-credito/src/lib/lib.routes.ts"
+      ],
     }
   },
   "exclude": ["node_modules", "tmp"]
