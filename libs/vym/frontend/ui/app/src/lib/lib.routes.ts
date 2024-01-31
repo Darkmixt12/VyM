@@ -11,14 +11,14 @@ export const appRoutes: Routes = [
         loadChildren: () =>
           import(
             '@vym/lib/facturas-despacho'
-          ).then((m) => m.facturasDespachoRoutes),
+          ).then((m) => m.routes),
       },
       {
         path: 'notas-credito',
         loadChildren: () =>
           import(
             '@vym/lib/notas-credito'
-          ).then((m) => m.notasCreditoRoutes),
+          ).then((m) => m.routes),
       },
     ],
   },
