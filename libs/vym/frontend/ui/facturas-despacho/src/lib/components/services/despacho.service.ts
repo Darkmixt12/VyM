@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Factura } from '../../interfaces/factura';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Factura } from '@vym/shared/interface/factura';
 
 @Injectable({ providedIn: 'root' })
 export class DespachoService {
