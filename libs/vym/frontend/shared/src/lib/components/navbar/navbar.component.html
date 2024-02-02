@@ -10,12 +10,7 @@
     <header class="primary-header flex">
       <nav data-visibles="false" class="navbar">
         <div class="routerlink">
-          <img
-            src="../../../assets/images/"
-            alt="No se carga la imagen"
-            width="100"
-            height="100"
-          />
+          <img class="imgLogo" src="https://res.cloudinary.com/dlsxaumhg/image/upload/v1706838307/locationsFolder/gqgdtefbbj1h9r4p2ibb.png" alt="">
         </div>
 
         <button
@@ -32,10 +27,10 @@
           class="primary-navigation"
           data-visible="false"
         >
-          <li [routerLink]="['/despacho/ingresar-factura']"  ><a>Ingresar Factura</a></li>
-          <li [routerLink]="['/despacho/home']" ><a>Despacho</a></li>
-          <li><a>Facturas</a></li>
-          <li><a>Responsables</a></li>
+          <li [routerLink]="['/despacho/home']"  ><a>Ingresar Factura</a></li>
+          <li [routerLink]="['/despacho/despacho']" ><a>Despacho</a></li>
+          <li [routerLink]="['/despacho/facturas']"><a>Facturas</a></li>
+          <li [routerLink]="['/despacho/responsables']" ><a>Responsables</a></li>
           <li [routerLink]="['/notas-credito']"><a>Notas de Credito</a></li>
         </ul>
       </nav>

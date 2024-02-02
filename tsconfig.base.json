@@ -19,6 +19,12 @@
       "@vym/facturas-despacho": [
         "libs/vym/frontend/ui/facturas-despacho/src/index.ts"
       ],
+      "@vym/lib/facturas-despacho": [
+        "libs/vym/frontend/ui/facturas-despacho/src/lib/lib.routes.ts"
+      ],
+      "@vym/lib/notas-credito": [
+        "libs/vym/frontend/ui/notas-credito/src/lib/lib.routes.ts"
+      ],
       "@vym/libs/frontend/lib/routes": [
         "libs/vym/frontend/ui/app/src/lib/lib.routes"
       ],
@@ -28,20 +34,11 @@
       "@vym/libs/frontend/shared/navbar": [
         "libs/vym/frontend/shared/src/lib/components/navbar/navbar.component"
       ],
-      "@vym/notas-credito": [
-        "libs/vym/frontend/ui/notas-credito/src/index.ts"],
-        "@vym/lib/facturas-despacho": [
-        "libs/vym/frontend/ui/facturas-despacho/src/lib/lib.routes.ts"
-      ],
-      "@vym/shared": [
-        "libs/vym/frontend/shared/src/index.ts"],
-      "@vym/shared/interface/factura":[
+      "@vym/notas-credito": ["libs/vym/frontend/ui/notas-credito/src/index.ts"],
+      "@vym/shared": ["libs/vym/frontend/shared/src/index.ts"],
+      "@vym/shared/interface/factura": [
         "libs/vym/frontend/shared/src/lib/interfaces/factura"
-      ],
-
-      "@vym/lib/notas-credito": [
-        "libs/vym/frontend/ui/notas-credito/src/lib/lib.routes.ts"
-      ],
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

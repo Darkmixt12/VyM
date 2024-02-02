@@ -45,6 +45,10 @@
   align-items: space-between;
 }
 
+.imgLogo{
+  width: 300px;
+}
+
 header ul {
   position: relative;
   display: flex;
@@ -85,9 +89,7 @@ nav {
   }
 }
 
-.mobile-nav-toggle {
-  background: url(../../../assets/images/321.png);
-}
+
 
 //? MEDIA QUERY NAV
 

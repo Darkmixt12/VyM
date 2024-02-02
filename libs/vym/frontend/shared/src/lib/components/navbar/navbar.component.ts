@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  public imageLogo: string = 'https://res.cloudinary.com/dlsxaumhg/image/upload/v1706838307/locationsFolder/gqgdtefbbj1h9r4p2ibb.png'
+  
   atributo() {
     const primaryNav = document.querySelector('.primary-navigation');
     const visibility = primaryNav?.getAttribute('data-visible');
