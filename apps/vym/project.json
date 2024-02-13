@@ -8,15 +8,25 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/vym",
         "index": "apps/vym/src/index.html",
         "main": "apps/vym/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/vym/tsconfig.app.json",
-        "assets": ["apps/vym/src/favicon.ico", "apps/vym/src/assets"],
-        "styles": ["apps/vym/src/styles.scss"],
+        "assets": [
+          "apps/vym/src/favicon.ico",
+          "apps/vym/src/assets"
+        ],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/vym/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -66,14 +76,21 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/vym/**/*.ts", "apps/vym/**/*.html"]
+        "lintFilePatterns": [
+          "apps/vym/**/*.ts",
+          "apps/vym/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/vym/jest.config.ts",
         "passWithNoTests": true

@@ -33,5 +33,7 @@ export class FacturasDespachoComponent {
     horaChequeo: ['10:00 AM'],
   });
 
-  agregarFactura$ = this.despachoService.saveFactura(this.myForm.value).subscribe();
+  saveFactura()  {
+    this.despachoService.saveFactura(this.myForm.value).subscribe();
+  } 
 }
