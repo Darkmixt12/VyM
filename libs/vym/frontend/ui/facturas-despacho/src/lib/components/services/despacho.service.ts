@@ -43,7 +43,7 @@ public miembrosVyMArray = [
     );
   }
 
-  listaFacturas(){
+  listaFacturas(): Observable<any>{
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.http.get(this.Global.url+'facturas-list', { headers})
