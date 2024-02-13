@@ -40,7 +40,7 @@
   },
   "generators": {
     "@nx/angular:application": {
-      "style": "scss",
+      "style": ["scss", "@angular/material/prebuilt-themes/deeppurple-amber.css"],
       "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
@@ -50,7 +50,7 @@
       "unitTestRunner": "jest"
     },
     "@nx/angular:component": {
-      "style": "scss"
+      "style": ["scss ", "@angular/material/prebuilt-themes/deeppurple-amber.css"]
     }
   },
   "nxCloudAccessToken": "NTJmZWZjMWItNGE5Mi00Y2NjLWE0NjItODM1NmYzODAwYmRjfHJlYWQtd3JpdGU="
