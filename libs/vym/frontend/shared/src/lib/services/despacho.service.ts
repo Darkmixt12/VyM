@@ -55,4 +55,9 @@ public miembrosVyMArray = [
     
     return this.http.get(this.Global.url+'creditos-list', { headers})
 }
+
+  deleteCredito(id: any): Observable<void>{
+  return this.http.delete<void>(this.Global.url+'creditos-deleted/'+id)
+}
+
 }
