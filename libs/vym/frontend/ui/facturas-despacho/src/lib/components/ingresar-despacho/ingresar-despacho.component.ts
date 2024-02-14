@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject,  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DespachoService } from '../services/despacho.service';
+
 
 
 import { Observable, map, startWith, switchMap } from 'rxjs';
@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
+import { DespachoService } from '@vym/shared/service/DespachoService';
 
 @Component({
   selector: 'vym-ingresar-despacho',

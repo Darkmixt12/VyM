@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Factura } from '@vym/shared/interface/factura';
+import { Factura } from '../interfaces/factura';
+
 
 @Injectable({ providedIn: 'root' })
 export class DespachoService {
@@ -48,4 +49,10 @@ public miembrosVyMArray = [
 
     return this.http.get(this.Global.url+'facturas-list', { headers})
   }
+
+  listaCreditos(): Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type','application/json');
+    
+    return this.http.get(this.Global.url+'creditos-list', { headers})
+}
 }

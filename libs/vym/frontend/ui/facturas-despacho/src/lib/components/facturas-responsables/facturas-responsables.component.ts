@@ -16,7 +16,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { Factura } from '@vym/shared/interface/factura';
-import { DespachoService } from '../services/despacho.service';
+import { DespachoService } from '@vym/shared/service/DespachoService';
+
 
 @Component({
   selector: 'vym-facturas-responsables',
