@@ -2,8 +2,9 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DespachoComponent } from '../despacho.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DespachoService } from '../services/despacho.service';
+
 import { Subject } from 'rxjs';
+import { DespachoService } from '@vym/shared/service/DespachoService';
 
 @Component({
   selector: 'vym-facturas-despacho',

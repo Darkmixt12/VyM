@@ -38,6 +38,12 @@
       "@vym/shared": ["libs/vym/frontend/shared/src/index.ts"],
       "@vym/shared/interface/factura": [
         "libs/vym/frontend/shared/src/lib/interfaces/factura"
+      ],
+      "@vym/shared/interfaces": [
+        "libs/vym/frontend/shared/src/lib/interfaces/index"
+      ],
+      "@vym/shared/service/DespachoService": [
+        "libs/vym/frontend/shared/src/lib/services/despacho.service"
       ]
     }
   },
