@@ -15,6 +15,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { DeleteCreditoComponent } from '../delete-credito/delete-credito.component';
+import { AddDeleteCreditoComponent } from '../add-delete-credito/add-delete-credito.component';
 
 
 @Component({
@@ -71,18 +72,18 @@ export class NotasCreditoComponent implements OnInit, AfterViewInit {
     }, 700)
   }
   
-  // openAddEditCredito(id?: string){
-  //   const dialogRef = this.dialog.open(EditCreditoComponent, {
-  //     width: '550px', disableClose: true,
+   openAddEditCredito(id?: string){
+     const dialogRef = this.dialog.open(AddDeleteCreditoComponent, {
+       width: '550px', disableClose: true,
   
-  //     data: {id:id}
-  //   })
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result.success){
-  //       this.getCreditos();
-  //     }
-  //   })
-  // }
+       data: {id:id}
+     })
+     dialogRef.afterClosed().subscribe(result => {
+       if(result.success){
+         this.getCreditos();
+       }
+     })
+   }
   
   // addDeletePersona(id?: number){
   //   const dialogRef = this.dialog.open(BorrarFacturaComponent, {
@@ -104,10 +105,7 @@ export class NotasCreditoComponent implements OnInit, AfterViewInit {
   
    });
   }
-  
-  openAddEditCredito(id: string){
 
-  }
 
 
 
