@@ -55,7 +55,7 @@
 			<th mat-header-cell *matHeaderCellDef></th>
 			<td mat-cell *matCellDef="let element">
 			  <!--  boton de editar -->
-			  <mat-icon class="btnEdit" matTooltip="Editar">edit</mat-icon>
+			  <mat-icon class="btnEdit" (click)="addEditPersona(element)" matTooltip="Editar">edit</mat-icon>
 			  <!--  boton de borrar -->
 			  <mat-icon  class="btnDelete"
 				matTooltip="Eliminar">delete</mat-icon>

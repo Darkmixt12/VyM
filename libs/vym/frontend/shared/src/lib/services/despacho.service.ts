@@ -80,4 +80,13 @@ public miembrosVyMArray = [
     return this.http.put<void>(this.Global.url+'creditos-updated/'+id, notacredito, {headers: headers})
 }
 
+updateFactura(id: string, factura: Factura): Observable<void>{
+  const headers = new HttpHeaders().set('Content-Type','application/json');
+  return this.http.put<void>(this.Global.url+'facturas-updated/'+id, factura, {headers})
+}
+
+getFactura(_id: string): Observable<Factura>{
+  const headers = new HttpHeaders().set('Content-Type','application/json');
+  return this.http.get<Factura>(this.Global.url+'facturas/'+_id, {headers})
+}
 }

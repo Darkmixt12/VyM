@@ -19,6 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { DespachoService } from '@vym/shared/service/DespachoService';
+import { FacturasEditComponent } from '../facturas-edit/facturas-edit.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -29,7 +32,7 @@ import { DespachoService } from '@vym/shared/service/DespachoService';
 @Component({
   selector: 'vym-facturas',
   standalone: true,
-  imports: [CommonModule,MatToolbarModule, MatCardModule, MatFormFieldModule, MatProgressBarModule, MatPaginatorModule,MatSnackBarModule,MatSortModule,MatDialogModule, MatIconModule,MatTableModule,MatInputModule],
+  imports: [CommonModule,MatToolbarModule, MatNativeDateModule,MatCardModule, MatDatepickerModule, MatFormFieldModule, MatProgressBarModule, MatPaginatorModule,MatSnackBarModule,MatSortModule,MatDialogModule, MatIconModule,MatTableModule,MatInputModule],
   templateUrl: './facturas.component.html',
   styleUrls: ['./facturas.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -91,21 +94,21 @@ export class FacturasComponent implements OnInit, AfterViewInit {
       }
     }
   
-    // addEditPersona(id?: number){
-    //   const dialogRef = this.dialog.open(EditPersonaComponent, {
-    //     width: '500px', disableClose: true,
-    //     data: {id: id, id2: id}  /* esta es nuestra badera para saber si el usuario esta editando y que elemento */
+     addEditPersona(id?: number){
+       const dialogRef = this.dialog.open(FacturasEditComponent, {
+         width: '500px', disableClose: true,
+         data: {id: id, id2: id}  /* esta es nuestra badera para saber si el usuario esta editando y que elemento */
   
         
-    //   });
-    //   dialogRef.afterClosed().subscribe(result => {
-    //     if(result.success){
-    //       this.getFacturas()
-    //     }
-    //     });
-    //     /* despues de cerrarse suscribase a un evento */
+       });
+       dialogRef.afterClosed().subscribe(result => {
+         if(result.success){
+           this.getFacturas()
+         }
+         });
+         /* despues de cerrarse suscribase a un evento */
   
-    // }
+     }
   
     // addDeletePersona(id?: number){
     //   const dialogRef = this.dialog.open(BorrarFacturaComponent, {
