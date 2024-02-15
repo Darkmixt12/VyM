@@ -22,6 +22,7 @@ import { DespachoService } from '@vym/shared/service/DespachoService';
 import { FacturasEditComponent } from '../facturas-edit/facturas-edit.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FacturasDeleteComponent } from '../facturas-delete/facturas-delete.component';
 
 
 
@@ -110,27 +111,27 @@ export class FacturasComponent implements OnInit, AfterViewInit {
   
      }
   
-    // addDeletePersona(id?: number){
-    //   const dialogRef = this.dialog.open(BorrarFacturaComponent, {
-    //     width: '270px', disableClose: true,
-    //     data: {id: id}
+     addDeletePersona(id?: number){
+     const dialogRef = this.dialog.open(FacturasDeleteComponent, {
+        width: '270px', disableClose: true,
+        data: {id: id}
   
-    // }); 
-    //   dialogRef.afterClosed().subscribe(result => {
-    //     if(result.success){
-    //       this.getFacturas()
-    //     }
+     }); 
+       dialogRef.afterClosed().subscribe(result => {
+        if(result.success){
+          this.getFacturas()
+        }
   
-    //   });
+      });
   
-    // }
+     }
   
-    // deleteFactura(id:any){
-    //     this.despachoService.deleteFactura(id).subscribe(() =>{
-    //       this.getFacturas();
-    //       this.mensajeDeleteExito();
-    //     })
-    // }
+     deleteFactura(id:any){
+         this.despachoService.deleteFactura(id).subscribe(() =>{
+           this.getFacturas();
+           this.mensajeDeleteExito();
+         })
+     }
   
     mensajeDeleteExito(){
   

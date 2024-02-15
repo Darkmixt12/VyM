@@ -57,7 +57,7 @@
 			  <!--  boton de editar -->
 			  <mat-icon class="btnEdit" (click)="addEditPersona(element)" matTooltip="Editar">edit</mat-icon>
 			  <!--  boton de borrar -->
-			  <mat-icon  class="btnDelete"
+			  <mat-icon  class="btnDelete" (click)="addDeletePersona(element._id)"
 				matTooltip="Eliminar">delete</mat-icon>
 			</td>
 		  </ng-container>

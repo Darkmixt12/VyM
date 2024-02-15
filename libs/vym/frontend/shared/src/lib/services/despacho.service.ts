@@ -89,4 +89,8 @@ getFactura(_id: string): Observable<Factura>{
   const headers = new HttpHeaders().set('Content-Type','application/json');
   return this.http.get<Factura>(this.Global.url+'facturas/'+_id, {headers})
 }
+
+deleteFactura(id: any): Observable<void>{
+  return this.http.delete<void>(this.Global.url+'facturas-deleted/'+id)
+}
 }
