@@ -6,7 +6,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Observable, Subject, map, startWith } from 'rxjs';
 import { DespachoService } from '@vym/shared/service/DespachoService';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
-import { Factura } from '@vym/shared/interfaces';
+
 
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -16,6 +16,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import { Factura } from '@vym/shared/interfaces';
 
 
 
@@ -67,15 +68,16 @@ export class FacturasDespachoComponent implements OnInit {
  ){
    this.maxDate = new Date();
    this.formAddFactura = this.fb.group({
-     factuasId: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern("^[0-9]*$")] ], // cuando hay mas de una validacion color [ ] convirtiendo las validaciones en un Array
-     cliente: ['',Validators.required],
-     fechaReg: ['',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]],
-     numPedido: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(5), Validators.pattern("^[0-9]*$")]],
+      
+     factura: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern("^[0-9]*$")] ], // cuando hay mas de una validacion color [ ] convirtiendo las validaciones en un Array
+     cliente: ['steventest',Validators.required],
+     fechaReg: ['15/2/2024',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]],
+     numPedido: ['89898',[Validators.required,Validators.minLength(5),Validators.maxLength(5), Validators.pattern("^[0-9]*$")]],
      nameChequeador: [''],
      nameAlistador: [''],
      fechaAlistado: [null,Validators.required],
      fechaChequeo: [null,Validators.required],
-     horaChequeo: ['',[Validators.required,Validators.pattern("^[0-9:]+PM|pm|AM|am$")]], 
+     horaChequeo: ['10:00am',[Validators.required,Validators.pattern("^[0-9:]+PM|pm|AM|am$")]], 
      numMesa: ['',Validators.required]
    })
    dateAdapter.setLocale('es');
@@ -106,47 +108,44 @@ export class FacturasDespachoComponent implements OnInit {
  }
  
  // metodo para el segundo formulario
- agregarFactura2(form: any){
-
    // PARA CAPTURAR UNO DE LOS DATOS QUE YA CAPTURAMOS EN EL INPUT PODEMOS HACER ESTO //
    //onst cliente = this.formAddFactura.get('cliente')?.value//
 
-   const factura: Factura = {
-     _id: '',
-     facturasId: this.formAddFactura.value.factura,
-     numPedido: this.formAddFactura.value.numPedido,
-     client: this.formAddFactura.value.cliente,
-     fechaReg: this.formAddFactura.value.fechaReg.toISOString().slice(0,10),
-     pushMoney: this.formAddFactura.value.pushM,
-     nomAlistador: this.nameAlistadorFilter.value,
-     nomChequeador: this.nameChequeadorFilter.value,
-     numMesa: this.formAddFactura.value.numMesa,
-     fechaAlistado: this.formAddFactura.value.fechaAlistado.toISOString().slice(0,10),
-     fechaChequeo: this.formAddFactura.value.fechaChequeo.toISOString().slice(0,10),
-     horaChequeo: this.formAddFactura.value.horaChequeo
-     
-   }
-   this.despachoService.listaFacturas().pipe(
-     
-   );
-   this.despachoService.saveFactura(factura).subscribe(
-     response => {
-       if(response )
-         this.status = 'success';
-         form.reset()
-         console.log(factura)
-     },
-     error =>{
-       if(error){
-         console.log(error)
-         this.status = 'failed'}
-   console.log(factura);
- }
- ); 
 
- }
 
   saveFactura()  {
-    this.despachoService.saveFactura(this.formAddFactura.value).subscribe();
-  } 
+
+    const factura: Factura ={
+      _id: '',
+      facturasId: this.formAddFactura.value.factura,
+      numPedido: this.formAddFactura.value.numPedido,
+      client: this.formAddFactura.value.cliente,
+      fechaReg: this.formAddFactura.value.fechaReg.toISOString().slice(0,10),
+      pushMoney: this.formAddFactura.value.pushM,
+      nomAlistador: this.nameAlistadorFilter.value,
+      nomChequeador: this.nameChequeadorFilter.value,
+      numMesa: this.formAddFactura.value.numMesa,
+      fechaAlistado: this.formAddFactura.value.fechaAlistado.toISOString().slice(0,10),
+      fechaChequeo: this.formAddFactura.value.fechaChequeo.toISOString().slice(0,10),
+      horaChequeo: this.formAddFactura.value.horaChequeo
+    }
+
+    this.despachoService.saveFactura(factura).subscribe(
+      response => {
+        if(response )
+          this.status = 'success';
+          this.formAddFactura.reset()
+          console.log(factura)
+      },
+      error =>{
+        if(error){
+          console.log(error)
+          this.status = 'failed'}
+    console.log(factura);
+  }
+  ); 
+ 
+  }
+ 
+  
 }

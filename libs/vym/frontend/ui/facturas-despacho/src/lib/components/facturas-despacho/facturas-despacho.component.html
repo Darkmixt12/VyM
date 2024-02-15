@@ -27,7 +27,7 @@
             <mat-label>NUMERO DE FACTURA</mat-label>
             <input
               matInput
-              formControlName="factuasId"
+              formControlName="factura"
               autocomplete="off"
               placeholder="Ingresar numero"
             />
@@ -37,16 +37,16 @@
           <div class="error">
             <span
               *ngIf="
-                formAddFactura.get('factuasId')?.hasError('required') &&
-                formAddFactura.get('factuasId')?.touched
+                formAddFactura.get('factura')?.hasError('required') &&
+                formAddFactura.get('factura')?.touched
               "
             >
               El numero de factura es <strong>Obligatorio</strong></span
             >
             <span
               *ngIf="
-                formAddFactura.get('factuasId')?.hasError('minlength') &&
-                formAddFactura.get('factuasId')?.touched
+                formAddFactura.get('factura')?.hasError('minlength') &&
+                formAddFactura.get('factura')?.touched
               "
             >
               La factura debe tener como minimo
@@ -54,8 +54,8 @@
             >
             <span
               *ngIf="
-                formAddFactura.get('factuasId')?.hasError('maxlength') &&
-                formAddFactura.get('factuasId')?.touched
+                formAddFactura.get('factura')?.hasError('maxlength') &&
+                formAddFactura.get('factura')?.touched
               "
             >
               La factura debe tener como maximo
@@ -63,8 +63,8 @@
             >
             <span
               *ngIf="
-                formAddFactura.get('factuasId')?.hasError('pattern') &&
-                formAddFactura.get('factuasId')?.touched
+                formAddFactura.get('factura')?.hasError('pattern') &&
+                formAddFactura.get('factura')?.touched
               "
             >
               El Numero de factura solo puede contener
