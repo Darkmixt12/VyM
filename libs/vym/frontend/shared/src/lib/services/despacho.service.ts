@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Factura } from '../interfaces/factura';
+import { Ncredito } from '../interfaces';
 
 
 @Injectable({ providedIn: 'root' })
@@ -54,5 +55,42 @@ public miembrosVyMArray = [
     const headers = new HttpHeaders().set('Content-Type','application/json');
     
     return this.http.get(this.Global.url+'creditos-list', { headers})
+}
+
+  deleteCredito(id: any): Observable<void>{
+  return this.http.delete<void>(this.Global.url+'creditos-deleted/'+id)
+}
+
+  getCreditoId(id: string): Observable<Ncredito>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.get<Ncredito>(this.Global.url+'credito/'+id, {headers})
+  }
+
+  saveCredito(credito:Ncredito): Observable<any>{
+        
+    const params = JSON.stringify(credito)
+    const headers = new HttpHeaders().set('Content-Type','application/json'); /* oara que la informacion vaya en ese formato */
+
+    return this.http.post(this.Global.url+'credito-save-check', params, {headers:headers});
+}
+
+  updateCredito(id: any, notacredito: Ncredito): Observable<void>{
+    const headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.put<void>(this.Global.url+'creditos-updated/'+id, notacredito, {headers: headers})
+}
+
+updateFactura(id: string, factura: Factura): Observable<void>{
+  const headers = new HttpHeaders().set('Content-Type','application/json');
+  return this.http.put<void>(this.Global.url+'facturas-updated/'+id, factura, {headers})
+}
+
+getFactura(_id: string): Observable<Factura>{
+  const headers = new HttpHeaders().set('Content-Type','application/json');
+  return this.http.get<Factura>(this.Global.url+'facturas/'+_id, {headers})
+}
+
+deleteFactura(id: any): Observable<void>{
+  return this.http.delete<void>(this.Global.url+'facturas-deleted/'+id)
 }
 }
