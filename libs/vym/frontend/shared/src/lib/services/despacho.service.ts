@@ -7,7 +7,7 @@ import { Ncredito } from '../interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class DespachoService {
-  private Global = { url: 'http://192.1.1.149:3700/api/' };
+  private Global = { url: 'http://localhost:3700/api/' };
   constructor(private http: HttpClient) {}
 
 //! CAMBIAR AQUI EL NOMBRE PARA AFECTAR TODA LA APLICACION
@@ -75,7 +75,8 @@ public miembrosVyMArray = [
     return this.http.post(this.Global.url+'credito-save-check', params, {headers:headers});
 }
 
-  updateCredito(id: any, notacredito: Ncredito): Observable<void>{
+  updateCredito(id: string | undefined, notacredito: Ncredito): Observable<void>{
+
     const headers = new HttpHeaders().set('Content-Type','application/json');
     return this.http.put<void>(this.Global.url+'creditos-updated/'+id, notacredito, {headers: headers})
 }
