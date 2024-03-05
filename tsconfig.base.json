@@ -44,6 +44,9 @@
       ],
       "@vym/shared/service/DespachoService": [
         "libs/vym/frontend/shared/src/lib/services/despacho.service"
+      ],
+      "@vym/shared/classes/notas-credito-helper": [
+        "libs/vym/frontend/shared/src/lib/classes/notas-credito-helper.ts"
       ]
     }
   },

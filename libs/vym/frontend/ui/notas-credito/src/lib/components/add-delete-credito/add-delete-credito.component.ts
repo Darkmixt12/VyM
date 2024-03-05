@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DespachoService } from '@vym/shared/service/DespachoService';
 import { Ncredito } from '@vym/shared/interfaces';
-
+import { estado, estados } from "@vym/shared/classes/notas-credito-helper";
 
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
@@ -11,17 +11,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 
-
-
-interface estado{
-  value: string,
-  viewValue: string,
-}
-
-interface ampo{
-  value: string,
-  viewValue: string,
-}
 
 @Component({
   selector: 'vym-add-delete-credito',
@@ -38,37 +27,8 @@ export class AddDeleteCreditoComponent implements OnInit{
   public operacion : string = 'Agregar '
   public id : string | undefined;
   public id1 : string | undefined;
-    // selec del estado del producto devuelto 
-    estados: estado[] = [
-      {value: 'BUENO', viewValue: 'Bueno'},
-      {value: 'MALO', viewValue: 'Malo'},
-      {value: 'CAMBIO', viewValue: 'Cambio'},
-  
-    ];
-  
-    ampos: ampo[] = [
-      {value: 'Ampo 1', viewValue: 'Ampo 1'},
-      {value: 'Ampo 2', viewValue: 'Ampo 2'},
-      {value: 'Ampo 3', viewValue: 'Ampo 3'},
-      {value: 'Ampo 4', viewValue: 'Ampo 4'},
-      {value: 'Ampo 5', viewValue: 'Ampo 5'},
-      {value: 'Ampo 6', viewValue: 'Ampo 6'},
-      {value: 'Ampo 7', viewValue: 'Ampo 7'},
-      {value: 'Ampo 8', viewValue: 'Ampo 8'},
-      {value: 'Ampo 9', viewValue: 'Ampo 9'},
-      {value: 'Ampo 10', viewValue: 'Ampo 10'},
-      {value: 'Ampo 11', viewValue: 'Ampo 11'},
-      {value: 'Ampo 12', viewValue: 'Ampo 12'},
-      {value: 'Ampo 13', viewValue: 'Ampo 13'},
-      {value: 'Ampo 14', viewValue: 'Ampo 14'},
-      {value: 'Ampo 15', viewValue: 'Ampo 15'},
-      {value: 'Ampo 16', viewValue: 'Ampo 16'},
-      {value: 'Ampo 17', viewValue: 'Ampo 17'},
-      {value: 'Ampo 18', viewValue: 'Ampo 18'},
-      {value: 'Ampo 19', viewValue: 'Ampo 19'},
-      {value: 'Vapos', viewValue: 'Vapos'},
-  
-    ];
+  public estados = estados
+
 
     verticalPosition: MatSnackBarVerticalPosition = 'top';
   public status!: string; /* variable para el mensaje de repetido en la base de datos */
@@ -123,9 +83,10 @@ btncancelar(){
 }
 
 addEditCredito2(formaddCredito: any) {
-  if(formaddCredito.invalid){
-    return;
-  }
+  if(formaddCredito.invalid) return;
+
+  const idFactura = this.id
+  console.log('buenas tardes',idFactura)
   const credito: Ncredito = {
     _id: this.formaddCredito.value._id,
     creditoId: this.formaddCredito.value.numBoleta,
@@ -137,7 +98,7 @@ addEditCredito2(formaddCredito: any) {
     creditoRegDia_db: this.formaddCredito.value.creditoRegDia_db
   }
 
-  if(this.id == undefined){
+  if(idFactura == 'null' || 'undefined'){
     // es agregar
 
     this.despachoService.saveCredito(credito).subscribe(
@@ -154,14 +115,14 @@ addEditCredito2(formaddCredito: any) {
   
       }
   )
-  }else{
+  }if(idFactura !== 'null' || 'undefined'){
     // es editar
-    this.despachoService.updateCredito(this.id, credito).subscribe((data:any) =>{
-      console.log(credito)
+    this.despachoService.updateCredito(idFactura, credito).subscribe((data:any) =>{
+      console.log('soy el credito',credito)
       this.mensajeDeUpdated('actualizada');
     })
-  }
   this.dialog.close({success: true});
+}
 
 }
 
