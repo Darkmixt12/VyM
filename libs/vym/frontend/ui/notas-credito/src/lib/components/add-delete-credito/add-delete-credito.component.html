@@ -1,5 +1,5 @@
 <div id="container">
-	<h2 mat-dialog-title>{{ operacion }} Nota de Credito</h2>
+	<h2 mat-dialog-title>{{ operacion }} Nota de Credito {{data.creditoId}}</h2>
 	<div>
 	  <div class="container">
 		<div class="message success" *ngIf="status === 'success'">
@@ -12,18 +12,19 @@
   <mat-dialog-content class="mat-typography">
 	<div>
 	  
-	  <form action="" id="form"  [formGroup]="formaddCredito" (ngSubmit)="addEditCredito2(formaddCredito)">
+	  <form action="" id="form"  [formGroup]="formaddCredito" >
 		<div class="row">
 		  <div class="column">
-			<h1>Numero de Boleta</h1>
+			<h1>Numero de Boleta </h1>
 			<mat-form-field appearance="fill" MatFormFieldControl>
-			  <mat-label> Boleta</mat-label>
+			  <mat-label> Boleta  </mat-label>
 			  <input
 				matInput
 				formControlName="numBoleta"
 				autocomplete="off"
 				placeholder="Ingresar Boleta"
-			  />
+				[(ngModel)]="data.creditoId"
+				/>
 			  <!-- Con el formControlName vinculamos el HTML con el Ts para los input-->
 			</mat-form-field>
 			<!-- SECCION DE ERROR BOLETA # -->
@@ -53,6 +54,7 @@
 				formControlName="numCliente"
 				utocomplete="off"
 				placeholder=""
+				[(ngModel)]="data.client"
 			  />
 			</mat-form-field>
 			<!-- Seccion de error del campo # CLIENTE-->
@@ -82,6 +84,7 @@
 				formControlName="agente"
 				utocomplete="off"
 				placeholder=""
+				[(ngModel)]="data.agente"
 			  />
 			</mat-form-field>
 			<!-- Seccion de error del campo # CLIENTE-->
@@ -95,7 +98,7 @@
 		<h1>Estado del Producto</h1>
 		<mat-form-field>
 		  <mat-label>Estado</mat-label>
-		  <mat-select formControlName="status">
+		  <mat-select formControlName="status" [(ngModel)]="data.status">
 			<mat-option *ngFor="let estado of estados" [value]="estado.value">
 			  {{ estado.viewValue }}
 			</mat-option>
@@ -119,6 +122,8 @@
 			formControlName="location"
 			utocomplete="off"
 			placeholder=""
+			[(ngModel)]="data.location"
+			
 		  />
 		</mat-form-field>
   
@@ -130,13 +135,13 @@
 		<h1>Detalles</h1>
 		<mat-form-field class="example-full-width">
 		  <mat-label>Nota</mat-label>
-		  <textarea matInput formControlName="detalle" placeholder="Deja una Nota Olman"></textarea>
+		  <textarea matInput formControlName="detalle" placeholder="Deja una Nota Olman" [(ngModel)]="data.description"></textarea>
 		</mat-form-field>
 		<!-- Termina el area de comentarios para Olman-->
   
 	  <mat-dialog-actions align="center">
 		<button type="button" class="btnCancelar" (click)="btncancelar()">Cancelar</button>
-		<button [disabled]="formaddCredito.invalid" type="submit" id="btnAceptar" class="btnAceptar" (click)="btncancelar" >Aceptar</button>
+		<button [disabled]="formaddCredito.invalid" type="submit" id="btnAceptar" class="btnAceptar" (click)="data.id ? editCredito() : crearCredito()" >Aceptar</button>
 	  </mat-dialog-actions>
 	  </form>
 	</div>

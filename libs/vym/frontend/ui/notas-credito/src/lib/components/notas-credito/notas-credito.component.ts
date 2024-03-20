@@ -72,11 +72,12 @@ export class NotasCreditoComponent implements OnInit, AfterViewInit {
     }, 700)
   }
   
-   openAddEditCredito(id?: string){
+   openAddEditCredito( element: any){
+      console.log(element)
      const dialogRef = this.dialog.open(AddDeleteCreditoComponent, {
        width: '550px', disableClose: true,
-  
-       data: {id:id}
+
+       data: {...element}
      })
      dialogRef.afterClosed().subscribe(result => {
        if(result.success){
