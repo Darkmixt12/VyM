@@ -1,19 +1,17 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DespachoService } from '@vym/shared/service/DespachoService';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
-import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import {MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 
 
 @Component({
   selector: 'vym-delete-credito',
   standalone: true,
-  imports: [CommonModule,MatDialogModule,ReactiveFormsModule,MatTableModule,MatInputModule],
+  imports: [MODULES],
   templateUrl: './delete-credito.component.html',
   styleUrl: './delete-credito.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

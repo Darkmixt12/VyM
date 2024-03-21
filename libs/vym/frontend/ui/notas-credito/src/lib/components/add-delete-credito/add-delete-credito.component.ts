@@ -1,43 +1,20 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { DespachoService } from '@vym/shared/service/DespachoService';
-import { Ncredito } from '@vym/shared/interfaces';
-import { estado, estados } from '@vym/shared/classes/notas-credito-helper';
+import {ChangeDetectionStrategy,Component,Inject,OnInit,} from '@angular/core';
 
-import {
-  MAT_DIALOG_DATA,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
-import {
-  MatSnackBar,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
-import { MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import {FormBuilder,FormGroup,Validators,} from '@angular/forms';
+import { DespachoService } from '@vym/shared/service/DespachoService';
+import { estados } from '@vym/shared/classes/notas-credito-helper';
+
+import {MAT_DIALOG_DATA,MatDialogRef,} from '@angular/material/dialog';
+import { MatSnackBar,MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import { MODULES } from '../../../../../../shared/src/lib/exports/export-modules';
+
+
 
 @Component({
   selector: 'vym-add-delete-credito',
   standalone: true,
   imports: [
-    CommonModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatInputModule,
-    MatSelectModule,
+    MODULES
   ],
   templateUrl: './add-delete-credito.component.html',
   styleUrl: './add-delete-credito.component.scss',

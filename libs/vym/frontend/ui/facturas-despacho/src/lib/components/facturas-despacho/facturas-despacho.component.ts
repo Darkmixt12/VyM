@@ -1,23 +1,14 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DespachoComponent } from '../despacho.component';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Observable, Subject, map, startWith } from 'rxjs';
 import { DespachoService } from '@vym/shared/service/DespachoService';
-import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { DateAdapter } from '@angular/material/core';
 
 
-import {MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatButtonModule} from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
 import { Factura } from '@vym/shared/interfaces';
-
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 
 
@@ -30,7 +21,7 @@ interface mesa {
 @Component({
   selector: 'vym-facturas-despacho',
   standalone: true,
-  imports: [CommonModule,MatProgressSpinnerModule,MatButtonModule,MatTableModule,MatSelectModule ,DespachoComponent, ReactiveFormsModule, MatFormFieldModule,MatDatepickerModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule, MatInputModule],
+  imports: [MODULES ,DespachoComponent],
   templateUrl: './facturas-despacho.component.html',
   styleUrls: ['./facturas-despacho.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,28 +1,20 @@
-import { CommonModule } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 
-
-
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatSnackBar, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import {MatSort } from '@angular/material/sort';
+import {MatDialog} from '@angular/material/dialog';
 import { Factura } from '@vym/shared/interface/factura';
 import { DespachoService } from '@vym/shared/service/DespachoService';
+
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 
 @Component({
   selector: 'vym-facturas-responsables',
   standalone: true,
-  imports: [CommonModule, FacturasResponsablesComponent,MatToolbarModule, MatCardModule, MatFormFieldModule, MatProgressBarModule, MatPaginatorModule,MatSnackBarModule,MatSortModule,MatDialogModule, MatIconModule,MatTableModule,MatInputModule],
+  imports: [MODULES,FacturasResponsablesComponent],
   templateUrl: './facturas-responsables.component.html',
   styleUrl: './facturas-responsables.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
