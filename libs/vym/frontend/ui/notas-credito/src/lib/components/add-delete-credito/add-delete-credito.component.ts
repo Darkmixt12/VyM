@@ -1,39 +1,46 @@
-import {ChangeDetectionStrategy,Component,Inject,OnInit,} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+  inject,
+} from '@angular/core';
 
-import {FormBuilder,FormGroup,Validators,} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DespachoService } from '@vym/shared/service/DespachoService';
 import { estados } from '@vym/shared/classes/notas-credito-helper';
-
-import {MAT_DIALOG_DATA,MatDialogRef,} from '@angular/material/dialog';
-import { MatSnackBar,MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { MODULES } from '../../../../../../shared/src/lib/exports/export-modules';
-
 
 
 @Component({
   selector: 'vym-add-delete-credito',
   standalone: true,
-  imports: [
-    MODULES
-  ],
+  imports: [MODULES, MatDialogTitle, MatDialogContent],
   templateUrl: './add-delete-credito.component.html',
   styleUrl: './add-delete-credito.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddDeleteCreditoComponent {
+  private despachoService = inject(DespachoService)
   public formaddCredito: FormGroup;
   public operacion: string = 'Agregar ';
   public id1: string | undefined;
   public estados = estados;
+  @Inject(MAT_DIALOG_DATA) 
+  public data: any
 
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   public status!: string; /* variable para el mensaje de repetido en la base de datos */
   constructor(
     public dialog: MatDialogRef<AddDeleteCreditoComponent>,
     private fb: FormBuilder,
-    private despachoService: DespachoService,
     private _snackBar: MatSnackBar,
-    @Inject(MAT_DIALOG_DATA) public data: any
+
   ) {
     this.formaddCredito = this.fb.group({
       // Se conecta el archivo css con el archivo HTML  adentro de una etiqueta FORM
@@ -61,56 +68,24 @@ export class AddDeleteCreditoComponent {
       location: [null, Validators.required],
     });
   }
-
-   ngOnInit() {
-    console.log(this.data)
-   }
-
-  // esEditar(id: string | undefined) {
-  //   if (id) {
-  //     this.operacion = 'Editar';
-  //     this.getCredito(id);
-  //   }
-  // }
-
-  // getCredito(id: string) {
-  //   this.despachoService.getCreditoId(id).subscribe((data: any) => {
-  //     console.log(data);
-  //     console.log(data.credito.client);
-  //     this.formaddCredito.patchValue({
-  //       numBoleta: data.credito.creditoId,
-  //       agente: data.credito.agente,
-  //       numCliente: data.credito.client,
-  //       status: data.credito.status,
-  //       detalle: data.credito.description,
-  //       location: data.credito.location,
-  //     });
-  //   });
-  // }
-
-  btncancelar() {
-    this.dialog.close({ success: false });
-  }
-
+  
   crearCredito() {
-    this.despachoService.saveCredito(this.formaddCredito).subscribe(
-      (response) => {
-        if (response) console.log(this.formaddCredito);
+    this.despachoService.saveCredito(this.formaddCredito).subscribe({
+      next: () => {
         this.mensajeDeUpdated('agregada');
+        this.dialog.close({ success: true });
       },
-      (error) => {
-        this.status = 'failed';
-      }
-    );
+      error: (e) => (this.status = 'failed'),
+    });
   }
 
   editCredito() {
     this.despachoService
-      .updateCredito(this.data.id, this.formaddCredito)
+      .updateCredito(this.data._id, this.formaddCredito)
       .subscribe((data: any) => {
         this.mensajeDeUpdated('actualizada');
+        this.dialog.close({ success: true });
       });
-    this.dialog.close({ success: true });
   }
 
   mensajeDeUpdated(operacion: string) {
