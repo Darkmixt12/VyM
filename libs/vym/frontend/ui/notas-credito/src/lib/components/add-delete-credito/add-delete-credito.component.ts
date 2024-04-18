@@ -9,13 +9,23 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DespachoService } from '@vym/shared/service/DespachoService';
 import { estados } from '@vym/shared/classes/notas-credito-helper';
-import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import {
   MatSnackBar,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { MODULES } from '../../../../../../shared/src/lib/exports/export-modules';
-
+import { MODULES } from '../../../../../../shared/src/lib/exports/export-modules'; //! HACER LOS ALIAS DE TODOS ESTOS HPS
+import {
+  required,
+  pattern,
+  minLength,
+  maxLength,
+} from '../../../../../../shared/src/lib/utils/general-utils';
 
 @Component({
   selector: 'vym-add-delete-credito',
@@ -25,50 +35,41 @@ import { MODULES } from '../../../../../../shared/src/lib/exports/export-modules
   styleUrl: './add-delete-credito.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddDeleteCreditoComponent {
-  private despachoService = inject(DespachoService)
-  public formaddCredito: FormGroup;
-  public operacion: string = 'Agregar ';
-  public id1: string | undefined;
+export class AddDeleteCreditoComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private _snackBar = inject(MatSnackBar);
+  private despachoService = inject(DespachoService);
+  public dialog = inject(MatDialogRef<AddDeleteCreditoComponent>);
+
+  public status!: string; 
   public estados = estados;
-  @Inject(MAT_DIALOG_DATA) 
-  public data: any
+  public id1: string | undefined;
+  public formaddCredito!: FormGroup;
+  public operacion: string = 'Agregar ';
 
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  public status!: string; /* variable para el mensaje de repetido en la base de datos */
   constructor(
-    public dialog: MatDialogRef<AddDeleteCreditoComponent>,
-    private fb: FormBuilder,
-    private _snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA)
+    public data: any
+  ) {}
 
-  ) {
+  ngOnInit(): void {
     this.formaddCredito = this.fb.group({
-      // Se conecta el archivo css con el archivo HTML  adentro de una etiqueta FORM
+      detalle: [this.data.description],
+      agente: [this.data.agente, Validators.required],
+      status: [this.data.status, Validators.required],
+      location: [this.data.location, Validators.required],
       numBoleta: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(5),
-          Validators.pattern('^[0-9]*$'),
-        ],
+        this.data?.creditoId,
+        [required, minLength(4), maxLength(5), pattern('^[0-9]*$')],
       ],
       numCliente: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(7),
-          Validators.pattern('^[0-9]*$'),
-        ],
+        this.data.client,
+        [required, minLength(4), maxLength(5), pattern('^[0-9]*$')],
       ],
-      agente: ['', Validators.required],
-      status: [null, Validators.required],
-      detalle: [''],
-      location: [null, Validators.required],
     });
   }
-  
+
   crearCredito() {
     this.despachoService.saveCredito(this.formaddCredito).subscribe({
       next: () => {

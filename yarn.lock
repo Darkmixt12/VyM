@@ -3908,6 +3908,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/component-store@npm:^17.2.0":
+  version: 17.2.0
+  resolution: "@ngrx/component-store@npm:17.2.0"
+  dependencies:
+    "@ngrx/operators": "npm:17.0.0-beta.0"
+    tslib: "npm:^2.0.0"
+  peerDependencies:
+    "@angular/core": ^17.0.0
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 10c0/7b55f7bd865eac155eaffd91a294ff46a107ce9f58f78c79b6dacfb19dda2a371375885015fa5e1f336e953e59ba769dd448d72070bd309dc90423613ee98da2
+  languageName: node
+  linkType: hard
+
+"@ngrx/operators@npm:17.0.0-beta.0":
+  version: 17.0.0-beta.0
+  resolution: "@ngrx/operators@npm:17.0.0-beta.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: 10c0/4173572632d97521d0a1035b983df8b2dac57713ab8d118dcbd92512d95bd2148df829baa49af075655c4249009d6b3d0ae0091c6b3f4d782dad633c1a362c66
+  languageName: node
+  linkType: hard
+
 "@ngtools/webpack@npm:17.0.6":
   version: 17.0.6
   resolution: "@ngtools/webpack@npm:17.0.6"
@@ -5524,6 +5548,7 @@ __metadata:
     "@angular/platform-browser": "npm:17.0.6"
     "@angular/platform-browser-dynamic": "npm:17.0.6"
     "@angular/router": "npm:17.0.6"
+    "@ngrx/component-store": "npm:^17.2.0"
     "@nx/angular": "npm:17.2.8"
     "@nx/cypress": "npm:17.2.8"
     "@nx/eslint": "npm:17.2.8"
@@ -15566,7 +15591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.6.2, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.5.0":
+"tslib@npm:2.6.2, tslib@npm:^2.0.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.5.0":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 10c0/e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb

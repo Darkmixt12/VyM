@@ -22,7 +22,7 @@
                   formControlName="numBoleta"
                   autocomplete="off"
                   placeholder="Ingresar Boleta"
-                  [(ngModel)]="data.creditoId"
+          
                 />
                 <!-- Con el formControlName vinculamos el HTML con el Ts para los input-->
               </mat-form-field>
@@ -73,7 +73,7 @@
                   formControlName="numCliente"
                   utocomplete="off"
                   placeholder=""
-                  [(ngModel)]="data.client"
+              
                 />
               </mat-form-field>
               <!-- Seccion de error del campo # CLIENTE-->
@@ -123,7 +123,7 @@
                 formControlName="agente"
                 utocomplete="off"
                 placeholder=""
-                [(ngModel)]="data.agente"
+             
               />
             </mat-form-field>
             <!-- Seccion de error del campo # CLIENTE-->
@@ -137,7 +137,7 @@
               <h1>Estado del Producto</h1>
               <mat-form-field>
                 <mat-label>Estado</mat-label>
-                <mat-select formControlName="status" [(ngModel)]="data.status">
+                <mat-select formControlName="status">
                   <mat-option
                     *ngFor="let estado of estados"
                     [value]="estado.value"
@@ -168,7 +168,7 @@
                   formControlName="location"
                   utocomplete="off"
                   placeholder=""
-                  [(ngModel)]="data.location"
+             
                 />
               </mat-form-field>
 
@@ -182,7 +182,7 @@
               matInput
               formControlName="detalle"
               placeholder="Deja una Nota Olman"
-              [(ngModel)]="data.description"
+          
             ></textarea>
           </mat-form-field>
           <!-- Termina el area de comentarios para Olman-->
