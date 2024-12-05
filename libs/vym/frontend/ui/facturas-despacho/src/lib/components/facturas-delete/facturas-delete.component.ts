@@ -1,19 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DespachoService } from '@vym/shared/service/DespachoService';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 @Component({
   selector: 'vym-facturas-delete',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,MatDialogModule,MatFormFieldModule,MatInputModule],
+  imports: [MODULES],
   templateUrl: './facturas-delete.component.html',
   styleUrl: './facturas-delete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

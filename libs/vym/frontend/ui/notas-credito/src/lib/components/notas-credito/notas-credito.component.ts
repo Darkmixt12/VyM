@@ -1,27 +1,20 @@
 import { Ncredito } from '@vym/shared/interfaces';
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { DespachoService } from '@vym/shared/service/DespachoService';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
 import { DeleteCreditoComponent } from '../delete-credito/delete-credito.component';
 import { AddDeleteCreditoComponent } from '../add-delete-credito/add-delete-credito.component';
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 
 @Component({
   selector: 'vym-notas-credito',
   standalone: true,
-  imports: [CommonModule,MatToolbarModule, MatCardModule, MatFormFieldModule,MatPaginatorModule,MatProgressBarModule,MatTableModule,MatInputModule,MatIconModule],
+  imports: [MODULES],
   templateUrl: './notas-credito.component.html',
   styleUrls: ['./notas-credito.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -72,11 +65,12 @@ export class NotasCreditoComponent implements OnInit, AfterViewInit {
     }, 700)
   }
   
-   openAddEditCredito(id?: string){
+   openAddEditCredito( element: any){
+      console.log(element)
      const dialogRef = this.dialog.open(AddDeleteCreditoComponent, {
        width: '550px', disableClose: true,
-  
-       data: {id:id}
+
+       data: {...element}
      })
      dialogRef.afterClosed().subscribe(result => {
        if(result.success){

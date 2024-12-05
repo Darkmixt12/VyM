@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Inject, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DespachoService } from '@vym/shared/service/DespachoService';
 import { switchMap } from 'rxjs';
 import { Factura } from '@vym/shared/interfaces';
@@ -8,12 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 
 
@@ -38,7 +32,7 @@ interface chequeador {
 @Component({
   selector: 'vym-facturas-edit',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,MatInputModule, MatProgressSpinnerModule,MatDialogModule,MatSelectModule, MatFormFieldModule, MatDatepickerModule],
+  imports: [MODULES],
   templateUrl: './facturas-edit.component.html',
   styleUrl: './facturas-edit.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

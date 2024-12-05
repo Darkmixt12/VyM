@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Factura } from '../interfaces/factura';
 import { Ncredito } from '../interfaces';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({ providedIn: 'root' })
@@ -67,18 +68,37 @@ public miembrosVyMArray = [
     return this.http.get<Ncredito>(this.Global.url+'credito/'+id, {headers})
   }
 
-  saveCredito(credito:Ncredito): Observable<any>{
-        
+  saveCredito(formAddCredito:FormGroup): Observable<any>{
+    const credito: Ncredito = {
+      _id: formAddCredito.value._id,
+      creditoId: formAddCredito.value.numBoleta,
+      client: formAddCredito.value.numCliente,
+      agente: formAddCredito.value.agente,
+      status: formAddCredito.value.status,
+      description: formAddCredito.value.detalle,
+      location: formAddCredito.value.location,
+      creditoRegDia_db: formAddCredito.value.creditoRegDia_db,
+    };
     const params = JSON.stringify(credito)
     const headers = new HttpHeaders().set('Content-Type','application/json'); /* oara que la informacion vaya en ese formato */
 
     return this.http.post(this.Global.url+'credito-save-check', params, {headers:headers});
 }
 
-  updateCredito(id: string | undefined, notacredito: Ncredito): Observable<void>{
+  updateCredito(id: string | undefined, formAddCredito:FormGroup): Observable<void>{
+    const credito: Ncredito = {
+      _id: formAddCredito.value._id,
+      creditoId: formAddCredito.value.numBoleta,
+      client: formAddCredito.value.numCliente,
+      agente: formAddCredito.value.agente,
+      status: formAddCredito.value.status,
+      description: formAddCredito.value.detalle,
+      location: formAddCredito.value.location,
+      creditoRegDia_db: formAddCredito.value.creditoRegDia_db,
+    };
 
     const headers = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.put<void>(this.Global.url+'creditos-updated/'+id, notacredito, {headers: headers})
+    return this.http.put<void>(this.Global.url+'creditos-updated/'+id, credito, {headers: headers})
 }
 
 updateFactura(id: string, factura: Factura): Observable<void>{

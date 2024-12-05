@@ -7,18 +7,13 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Observable, map, startWith, switchMap } from 'rxjs';
 import { Factura } from '@vym/shared/interface/factura';
 
-import {MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatButtonModule} from '@angular/material/button';
 import { DespachoService } from '@vym/shared/service/DespachoService';
+import { MODULES } from 'libs/vym/frontend/shared/src/lib/exports/export-modules';
 
 @Component({
   selector: 'vym-ingresar-despacho',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule,MatInputModule,MatFormFieldModule,MatAutocompleteModule,MatProgressSpinnerModule, MatButtonModule],
+  imports: [MODULES],
   templateUrl: './ingresar-despacho.component.html',
   styleUrls: ['./ingresar-despacho.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
